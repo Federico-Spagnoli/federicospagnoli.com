@@ -1,255 +1,176 @@
 ---
-// src/pages/index.astro
-import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
 
-// Variabili di stile per mantenere il codice pulito
-const techCardStyle = "flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all cursor-default group";
-const techIconSize = "w-6 h-6 shrink-0"; // Icone che non si schiacciano mai
-
-// Link ai siti ufficiali
+// LINKS
 const links = {
-  c: "https://en.cppreference.com/w/c",
-  java: "https://www.java.com/",
-  python: "https://www.python.org/",
-  assembly: "https://en.wikipedia.org/wiki/Assembly_language",
-  react: "https://react.dev/",
-  astro: "https://astro.build/",
-  tailwind: "https://tailwindcss.com/",
-  vite: "https://vitejs.dev/",
-  sql: "https://www.w3schools.com/sql/",
-  excel: "https://www.microsoft.com/en-us/microsoft-365/excel"
+  email: "mailto:federico@federicospagnoli.com",
+  github: "https://github.com/Federico-Spagnoli",
+  linkedin: "https://www.linkedin.com/in/federico-spagnoli-82a3663a2/",
+  insta: "https://www.instagram.com/fedeespagnoli/"
 };
+
+// SKILLS 
+const words = ["Visionary", "Economics", "Resilience", "Strategy", "Innovation", "Problem Solving", "Creativity"];
+
+// STILI
+const box = "bg-white border border-black/10 rounded-2xl overflow-hidden hover:shadow-xl hover:scale-[1.005] transition-all duration-500 ease-out relative group";
+const darkBox = "bg-black text-white border border-white/10 rounded-2xl overflow-hidden hover:shadow-xl hover:scale-[1.005] transition-all duration-500 ease-out relative group";
+const iconBtn = "w-10 h-10 flex items-center justify-center rounded-full border border-black/10 hover:bg-black hover:text-white transition-all duration-300";
 ---
 
-<html lang="en" class="scroll-smooth">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Federico Spagnoli | IT Student</title>
-		
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-		
-		<script>
-			document.addEventListener('DOMContentLoaded', () => {
-				const observer = new IntersectionObserver((entries) => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							entry.target.classList.add('visible');
-						}
-					});
-				}, { threshold: 0.1 });
+<Layout title="Federico Spagnoli">
+    
+    <main class="relative min-h-screen p-4 md:p-8 max-w-[1400px] mx-auto">
+        
+        <header class="flex justify-between items-end mb-8 fade-in">
+            <div class="w-12 h-12">
+                <img src="/logo.svg" alt="Logo" class="w-full h-full text-black hover:rotate-180 transition-transform duration-700" />
+            </div>
+            <div class="text-right leading-tight">
+                <p class="text-[10px] font-bold uppercase tracking-widest">© Federico Spagnoli</p>
+                <p class="text-[10px] font-mono uppercase tracking-widest opacity-50">📍Brescia • {new Date().getFullYear()}</p>
+            </div>
+        </header>
 
-				document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-					observer.observe(el);
-				});
-			});
-		</script>
-	</head>
-	
-	<body class="bg-[#050505] text-white font-['Inter'] antialiased selection:bg-purple-500/30 selection:text-purple-200">
-		
-		<div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-			<div class="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-purple-900/20 rounded-full blur-[120px] animate-blob"></div>
-			<div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-900/20 rounded-full blur-[120px] animate-blob animation-delay-2000"></div>
-		</div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
 
-		<main class="relative z-10 min-h-screen flex flex-col items-center justify-center p-4 md:p-8 overflow-hidden">
-			
-			<div class="max-w-5xl w-full flex flex-col gap-6">
-				
-				<div class="animate-on-scroll w-full bg-neutral-900/40 backdrop-blur-xl border border-white/10 rounded-[2rem] p-8 md:p-12 flex flex-col-reverse md:flex-row items-center md:items-start justify-between gap-8 group hover:border-white/20 transition-all duration-500 relative overflow-hidden">
-					
-					<div class="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-					
-					<div class="z-10 flex flex-col items-center md:items-start text-center md:text-left w-full md:w-auto">
-						
-						<div class="inline-flex items-center gap-2 px-3 py-1.5 mb-6 text-xs font-semibold tracking-wider text-purple-300 uppercase bg-purple-500/10 rounded-full border border-purple-500/20 shadow-[0_0_15px_-3px_rgba(168,85,247,0.3)]">
-							<span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
-							IT Student • Future Data Analyst
-						</div>
-						
-						<h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-4">
-							Federico <br/>
-							<span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-purple-400 animate-gradient-x">Spagnoli</span>
-						</h1>
-						
-						<p class="text-lg text-neutral-400 max-w-lg mt-2 leading-relaxed">
-							Bridging the gap between <strong>Computer Science</strong> and <strong>Economics</strong>. 
-							Exploring data to understand the world.
-						</p>
+            <div class={`col-span-1 md:col-span-8 p-8 md:p-10 flex flex-col justify-center min-h-[350px] fade-in delay-100 ${box}`}>
+                <div>
+                    <h1 class="text-5xl md:text-7xl leading-[0.95] text-black mb-5 tracking-tight">
+                        Visionary Tech. <br>
+                        <span class="italic font-light text-neutral-500">Authentic Soul.</span>
+                    </h1>
+                    <p class="text-base md:text-lg max-w-lg font-medium leading-relaxed text-neutral-700 text-balance">
+                        I am <span class="underline decoration-1 underline-offset-4">Federico</span>. 
+                        Merging rigorous Engineering logic with creative vision. 
+                        I study technology to find creative ways to impact the real world.
+                    </p>
+                </div>
 
-						<div class="flex flex-col md:flex-row gap-3 mt-8 w-full md:w-auto">
-							
-							<a href="https://github.com/Federico-Spagnoli" target="_blank" class="flex items-center justify-center md:justify-start gap-3 px-6 py-3 bg-[#161b22] border border-white/10 rounded-full hover:bg-white/10 hover:-translate-y-1 transition-all group w-full md:w-auto">
-								<svg class="w-5 h-5 text-white shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-								<span class="font-medium text-sm">GitHub</span>
-							</a>
+                <div class="flex items-center gap-3 mt-8 pt-6 border-t border-black/5">
+                    <a href={links.github} target="_blank" class={iconBtn} aria-label="GitHub">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href={links.linkedin} target="_blank" class={iconBtn} aria-label="LinkedIn">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href={links.email} class={iconBtn} aria-label="Email">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </a>
+                    <div class="h-px w-8 bg-black/10 mx-2"></div>
+                    <p class="text-xs font-mono text-neutral-400">CONNECT</p>
+                </div>
+            </div>
 
-							<a href="https://www.linkedin.com/in/federico-spagnoli-82a3663a2/" target="_blank" class="flex items-center justify-center md:justify-start gap-3 px-6 py-3 bg-[#0077b5]/10 border border-[#0077b5]/20 rounded-full hover:bg-[#0077b5]/20 hover:-translate-y-1 transition-all group w-full md:w-auto">
-								<svg class="w-5 h-5 text-[#0077b5] shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-								<span class="font-medium text-sm text-blue-200">LinkedIn</span>
-							</a>
+            <div class={`col-span-1 md:col-span-4 min-h-[350px] ${box} !p-0 fade-in delay-200`}>
+                <img src="https://github.com/Federico-Spagnoli.png" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Me" />
+                <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-3 py-1.5 rounded-full text-xs font-bold border border-black/10 shadow-sm flex items-center gap-2">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    Student & Dreamer
+                </div>
+            </div>
 
-							<a href="https://www.instagram.com/fedeespagnoli/" target="_blank" class="flex items-center justify-center md:justify-start gap-3 px-6 py-3 bg-pink-500/10 border border-pink-500/20 rounded-full hover:bg-pink-500/20 hover:-translate-y-1 transition-all group w-full md:w-auto">
-								<svg class="w-5 h-5 text-pink-400 shrink-0" viewBox="0 0 24 24" fill="currentColor">
-									<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.645.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-								</svg>
-								<span class="font-medium text-sm text-pink-200">Instagram</span>
-							</a>
-						</div>
-					</div>
-					
-					<div class="relative group-hover:scale-105 transition-transform duration-500 shrink-0">
-						<div class="absolute inset-0 bg-purple-500 blur-2xl opacity-20 group-hover:opacity-40 transition-opacity rounded-full"></div>
-						<img src="https://github.com/Federico-Spagnoli.png" alt="Federico" class="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-neutral-800 shadow-2xl object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
-					</div>
-				</div>
+            <div class="col-span-1 md:col-span-12 bg-black text-white rounded-xl py-3 overflow-hidden flex items-center fade-in delay-300 shadow-md">
+                <div class="whitespace-nowrap animate-marquee flex gap-16 text-sm md:text-base font-mono uppercase tracking-widest">
+                    {words.map(s => <span>{s}</span>)}
+                    <span class="text-neutral-600">//</span>
+                    {words.map(s => <span>{s}</span>)}
+                </div>
+            </div>
 
-				<div class="animate-on-scroll delay-150 w-full bg-neutral-900/40 backdrop-blur-md border border-white/10 rounded-[2rem] p-8">
-					<div class="flex items-center gap-3 mb-8">
-						<div class="p-2 bg-neutral-800 rounded-lg">
-							<svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-						</div>
-						<h3 class="text-2xl font-bold text-white">Technologies & Tools</h3>
-					</div>
-					
-					<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-						
-						<div class="flex flex-col gap-4">
-							<p class="text-xs text-neutral-500 font-bold uppercase tracking-widest border-b border-white/5 pb-2">Core & Low Level</p>
-							<div class="flex flex-col gap-3">
-								<a href={links.c} target="_blank" class={techCardStyle}>
-                                    <svg class={techIconSize} viewBox="0 0 128 128" fill="currentColor"><path fill="#A8B9CC" d="M117.5 33.5l-8.5-4.8c-1.8-1-3.9-1.6-6-1.6-4.9 0-9.2 2.8-11.4 6.9L64.3 87.7 36.4 34c-2.2-4.1-6.5-6.9-11.4-6.9-2.1 0-4.2.5-6 1.6l-8.5 4.8c-2.2 1.2-3.6 3.6-3.6 6.1v60.9c0 2.5 1.4 4.8 3.6 6.1l53.9 30.3c1.7 1 3.7 1.4 5.6 1.4 1.9 0 3.9-.5 5.6-1.4l53.9-30.3c2.2-1.2 3.6-3.6 3.6-6.1V39.6c.1-2.5-1.3-4.9-3.5-6.1zM111 98.6L64.3 124.9 17.6 98.6V44.4L64.3 18l46.7 26.4v54.2z"/><path fill="#A8B9CC" d="M83.2 55.4c-3.1-3.6-7.6-5.6-12.7-5.6-10.1 0-16.5 8.1-16.5 18.2s6.4 18.2 16.5 18.2c5.1 0 9.5-2.1 12.7-5.6l9.3 9.6c-5.5 5.9-13.3 9.3-22 9.3-17.1 0-30.7-13.6-30.7-31.5S53.3 36.5 70.4 36.5c8.7 0 16.5 3.4 22 9.3l-9.2 9.6z"/></svg>
-                                    <span class="text-sm font-medium text-neutral-300">C Language</span>
-                                </a>
-                                <a href={links.java} target="_blank" class={techCardStyle}>
-                                    <svg class={techIconSize} viewBox="0 0 24 24" fill="currentColor"><path d="M4.5,18.6c-0.8,0-1.4-0.6-1.4-1.4s0.6-1.4,1.4-1.4s1.4,0.6,1.4,1.4S5.3,18.6,4.5,18.6z M19.5,18.6c-0.8,0-1.4-0.6-1.4-1.4 s0.6-1.4,1.4-1.4s1.4,0.6,1.4,1.4S20.3,18.6,19.5,18.6z M12,18.6c-0.8,0-1.4-0.6-1.4-1.4s0.6-1.4,1.4-1.4s1.4,0.6,1.4,1.4 S12.8,18.6,12,18.6z M12,2c5.5,0,10,4.5,10,10s-4.5,10-10,10S2,17.5,2,12S6.5,2,12,2 M12,0C5.4,0,0,5.4,0,12s5.4,12,12,12s12-5.4,12-12 S18.6,0,12,0L12,0z M12,5c-3.9,0-7,3.1-7,7s3.1,7,7,7s7-3.1,7-7S15.9,5,12,5z M12,17c-2.8,0-5-2.2-5-5s2.2-5,5-5s5,2.2,5,5 S14.8,17,12,17z" fill="#fff"/></svg>
-                                    <span class="text-sm font-medium text-neutral-300">Java</span>
-                                </a>
-                                <a href={links.python} target="_blank" class={techCardStyle}>
-                                    <svg class={techIconSize} viewBox="0 0 24 24" fill="currentColor"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-2.91l.01-.28.04-.26.08-.31.12-.32.19-.34.25-.34.32-.31.37-.25.44-.2.49-.15.55-.1.58-.04.59-.01zM8.94 1.4L9.13 1.5l.13.15.08.17.02.19-.04.19-.11.18-.17.13-.2.06-.19-.01-.18-.08-.14-.14-.07-.19-.01-.21.07-.19.13-.14.18-.08zm5.23 15.65l.16.03.22.07.25.13.27.2.26.29.24.4.2.49.17.61.12.73.07.86.03.99-.02 1.02-.09.91-.16.8-.25.68-.32.55-.38.44-.43.34-.48.25-.51.18-.54.12-.55.07-.55.03-.52-.01-.5-.07-.46-.14-.42-.21-.38-.3-.34-.41-.29-.51-.25-.63-.2-.75-.15-.86-.1-1.08v-3.32h5.5l.55.02.48.07.41.13.35.21.28.3.2.39.12.48.06.56.02.64v3.42l-.02.25-.05.24-.08.23-.11.22-.15.2-.18.18-.21.16-.24.13-.26.1-.28.06-.29.02H9.25l-.16-.01-.24-.04-.3-.07-.35-.12-.37-.17-.36-.23-.32-.28-.29-.36-.23-.42-.18-.5-.12-.56-.06-.64-.02-.73v-3.7l.01-.23.03-.23.06-.23.1-.22.14-.2.17-.18.2-.15.24-.13.27-.1.3-.06.32-.02h6.31zM14.7 18.28l.19.01.17.07.13.13.08.18.01.21-.06.19-.13.15-.19.08-.2.01-.19-.06-.15-.13-.08-.18-.01-.2.06-.19.13-.15.19-.08z" fill="#3776AB"/></svg>
-                                    <span class="text-sm font-medium text-neutral-300">Python</span>
-                                </a>
-                                <a href={links.assembly} target="_blank" class={techCardStyle}>
-                                    <div class="w-6 h-6 shrink-0 flex items-center justify-center font-mono font-bold text-[10px] bg-neutral-700 rounded text-white group-hover:bg-neutral-600 transition-colors">ASM</div>
-                                    <span class="text-sm font-medium text-neutral-300">Assembly</span>
-                                </a>
-							</div>
-						</div>
+            <div class={`col-span-1 md:col-span-6 min-h-[300px] p-10 flex flex-col justify-center items-center text-center bg-[#F4F4F0] ${box} fade-in delay-400`}>
+                <div class="max-w-md">
+                    <h3 class="serif text-3xl mb-4 italic">The Quiet Strength.</h3>
+                    <p class="text-neutral-700 leading-relaxed text-sm md:text-base text-balance">
+                        In a world that rewards noise, I choose depth. Being introverted isn't a limitation; it's a filter. It allows me to observe what others miss and solve problems with a perspective no one else has.
+                    </p>
+                </div>
+            </div>
 
-						<div class="flex flex-col gap-4">
-							<p class="text-xs text-neutral-500 font-bold uppercase tracking-widest border-b border-white/5 pb-2">Modern Web</p>
-							<div class="flex flex-col gap-3">
-                                <a href={links.react} target="_blank" class={techCardStyle}>
-                                    <svg class={techIconSize} viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.365c-1.396 0-2.614-.85-3.69-2.585-.486-.783-.895-1.745-1.21-2.825-.262-.903-.453-1.898-.565-2.923-.298.01-.6.015-.9.015-2.071 0-4.008-.242-5.116-1.503-.497-.565-.658-1.226-.45-1.854.21-.628.74-1.12 1.493-1.387 1.258-.445 3.12-.39 5.093.156.09-1.13.3-2.222.61-3.218.35-1.13.82-2.128 1.378-2.922C9.775 1.282 10.933.5 12 .5c1.077 0 2.22.784 3.35 1.815.56.795 1.028 1.79 1.378 2.92.31.996.52 2.09.61 3.22 1.97-.547 3.834-.602 5.093-.157.752.266 1.282.76 1.493 1.387.208.628.047 1.29-.45 1.854-1.107 1.26-3.044 1.503-5.115 1.503-.302 0-.603-.005-.902-.015-.112 1.025-.303 2.02-.564 2.923-.316 1.08-.724 2.042-1.21 2.825-1.075 1.734-2.293 2.585-3.69 2.585zm0-2.526c.46 0 .975-.387 1.56-1.58.374-.76.685-1.685.918-2.73.18-.813.3-1.684.356-2.582-1.84.14-3.83.14-5.67 0 .057.9.176 1.77.357 2.583.232 1.045.544 1.97.918 2.73.585 1.193 1.1 1.58 1.56 1.58zm-5.635-7.14c-1.38.164-2.287.323-2.61.437-.183.065-.24.116-.252.152-.01.034.02.1.2.304.59.67 2.022.868 3.737.868.216 0 .432 0 .647-.005-.28-1.026-.484-2.092-.61-3.197-.37.45-.74.915-1.112 1.442zm11.27 0c-.372-.527-.743-.992-1.112-1.442-.125 1.105-.33 2.17-.61 3.197.215.006.43.006.647.006 1.715 0 3.147-.197 3.737-.868.182-.206.21-.27.2-.305-.01-.036-.07-.087-.25-.152-.325-.114-1.23-.273-2.612-.437zM12 2.96c-.46 0-.976.387-1.56 1.58-.374.76-.685 1.684-.918 2.73-.18.812-.3 1.683-.356 2.58 1.84-.138 3.83-.138 5.67 0-.057-.9-.176-1.768-.357-2.58-.232-1.046-.544-1.97-.918-2.73-.585-1.194-1.1-1.58-1.56-1.58z" fill="#61DAFB"/></svg>
-                                    <span class="text-sm font-medium text-neutral-300">React</span>
-                                </a>
-                                <a href={links.astro} target="_blank" class={techCardStyle}>
-                                    <svg class={techIconSize} viewBox="0 0 24 24" fill="currentColor"><path d="M12.63 1.737c.72 1.319 1.458 2.652 2.196 3.97l4.032 7.172a5.552 5.552 0 0 1 .494 1.715c.01.206.02.411.01.617a6.29 6.29 0 0 1-.225 1.636 5.602 5.602 0 0 1-1.606 2.683 5.923 5.923 0 0 1-1.44.97c-.352.157-.714.284-1.09.392-.538.137-1.106.196-1.684.147-.568-.039-1.126-.186-1.645-.372a5.352 5.352 0 0 1-2.145-1.391 5.485 5.485 0 0 1-1.225-2.458 4.347 4.347 0 0 1 .157-2.762c.156-.47.411-.891.705-1.283.02-.029.039-.039.049-.068.539-.774 1.136-1.518 1.763-2.223 1.253-1.42 2.634-2.732 4.084-3.957.548-.46.548-.46.127-.852a3.81 3.81 0 0 0-2.438-1.019c-.275-.02-.549-.01-.823.01-.274.02-.548.068-.813.147-.529.137-1.028.382-1.479.705-.44.323-.832.705-1.155 1.156-.314.45-.558.96-.696 1.508-.068.274-.107.548-.127.833-.01.274 0 .558.04.832.078.539.254 1.058.509 1.538.254.48.587.91.97 1.283.391.382.842.705 1.332.95.49.245 1.018.411 1.557.48.274.039.549.049.823.029l.176-.01.079.03.029.078c.01.029.01.059.01.088-.01.117-.03.225-.04.333a2.915 2.915 0 0 1-1.009 1.635 2.703 2.703 0 0 1-1.655.519 2.597 2.597 0 0 1-1.616-.548 2.644 2.644 0 0 1-.989-1.381 2.908 2.908 0 0 1 .059-1.939c.049-.157.108-.313.186-.46.078-.157.176-.304.284-.441.117-.137.245-.264.382-.382a2.036 2.036 0 0 1 .45-.294c.167-.078.333-.137.51-.176l.244-.029.079-.04.01-.078c.01-.068-.039-.147-.118-.186l-.519-.245a4.79 4.79 0 0 0-2.008-.333 4.256 4.256 0 0 0-2.047.813 4.384 4.384 0 0 0-1.42 1.959 5.865 5.865 0 0 0-.255 1.489 5.385 5.385 0 0 0 .392 2.39 5.61 5.61 0 0 0 1.254 1.841 6.34 6.34 0 0 0 2.057 1.332 7.072 7.072 0 0 0 2.625.431 8.356 8.356 0 0 0 1.92-.323 7.857 7.857 0 0 0 1.743-.725c.343-.196.676-.43.98-.695.274-.235.519-.509.734-.813.206-.294.382-.607.519-.94.137-.333.225-.686.274-1.048.059-.382.049-.784-.02-1.185a5.57 5.57 0 0 0-.342-1.156c-.157-.382-.363-.734-.608-1.067-.323-.421-.705-.803-1.146-1.127-.225-.166-.46-.313-.705-.44l-.235-.128c.519-.489 1.018-1.009 1.498-1.557.48-.549.921-1.127 1.313-1.734.392-.607.744-1.244 1.048-1.9.313-.676.568-1.371.774-2.086l.049-.176.02-.079a.23.23 0 0 0-.059-.225.132.132 0 0 0-.157-.029l-.235.108a.565.565 0 0 0-.176.127c-.206.216-.402.441-.588.666-.382.46-.725.95-1.038 1.45l-.46.774c-.167.274-.324.558-.47.852l-2.008 3.595-1.019 1.822-1.019 1.832c-.166.294-.333.588-.509.871l-2.008 3.497c-.333.578-.656 1.156-.99 1.724a.274.274 0 0 1-.362.098.307.307 0 0 1-.137-.166c-.059-.225-.069-.45-.049-.686.02-.274.098-.538.206-.793.127-.284.304-.548.519-.784.45-.49.999-.89 1.606-1.185.343-.167.705-.294 1.078-.372.372-.078.754-.108 1.126-.088.372.02.735.088 1.088.196.353.108.686.264.999.47.617.402 1.117.96 1.44 1.626.333.686.49 1.45.46 2.233-.01.196-.029.392-.058.578a3.15 3.15 0 0 1-.412 1.058 2.68 2.68 0 0 1-1.685 1.342 2.613 2.613 0 0 1-1.92-.069 2.766 2.766 0 0 1-1.46-1.175 3.036 3.036 0 0 1-.362-1.509c.01-.254.059-.5.137-.744.078-.225.196-.441.343-.637.147-.196.323-.372.519-.529a3.75 3.75 0 0 1 1.46-.734c.548-.147 1.126-.147 1.675-.02.539.127 1.038.372 1.469.725.206.176.392.382.549.607.157.225.274.47.362.725.088.254.127.519.127.783v.01c.01.274-.039.548-.127.813a2.38 2.38 0 0 1-1.087 1.312 2.226 2.226 0 0 1-1.646.167 2.376 2.376 0 0 1-1.42-.872 2.926 2.926 0 0 1-.49-1.685c.01-.196.039-.392.098-.578.029-.098.078-.186.127-.274a2.915 2.915 0 0 1 .49-.646 2.333 2.333 0 0 1 1.029-.588c.176-.059.362-.088.548-.098.176-.01.353.01.529.049.167.049.323.117.47.206.137.088.255.196.353.313.196.245.313.539.343.852.02.323-.059.637-.225.911-.167.274-.421.49-.725.617a1.45 1.45 0 0 1-1.077.039 1.474 1.474 0 0 1-.843-.637 1.64 1.64 0 0 1-.225-.97c0-.127.02-.254.049-.372.02-.059.039-.117.068-.176.069-.147.167-.284.284-.392.118-.108.255-.186.402-.235.147-.049.304-.059.46-.049.147.02.294.068.421.147.127.078.235.186.304.313.068.127.108.264.108.411.01.137-.03.284-.098.402-.069.117-.176.215-.294.274-.118.059-.255.078-.382.059-.127-.01-.245-.069-.343-.147-.098-.078-.166-.196-.206-.313-.029-.118-.02-.245.02-.362.039-.108.118-.206.216-.264.098-.069.215-.078.323-.049.108.029.196.108.245.206.059.098.059.215.02.313a.35.35 0 0 1-.225.215.347.347 0 0 1-.362-.059.35.35 0 0 1-.108-.342.345.345 0 0 1 .284-.245l.118-.01.108.03.078.078c.02.029.029.068.02.098 0 .029-.02.068-.049.088a.096.096 0 0 1-.108.01.127.127 0 0 1-.059-.098c0-.01.01-.039.01-.049l-1.93-3.418-1.92-3.409c-.108-.196-.216-.382-.323-.578l-.666-1.185a.31.31 0 0 1 .01-.304.303.303 0 0 1 .225-.137h.03c.127 0 .245.049.333.127.088.078.147.186.166.304.01.108-.02.225-.078.313l-.118.186c.206-.068.421-.117.637-.147.215-.029.431-.029.646-.01.216.02.421.069.627.137.421.147.803.382 1.136.686.333.304.598.676.784 1.087.186.411.284.862.274 1.313z" fill="#fff"/></svg>
-                                    <span class="text-sm font-medium text-neutral-300">Astro</span>
-                                </a>
-                                <a href={links.tailwind} target="_blank" class={techCardStyle}>
-                                    <svg class={techIconSize} viewBox="0 0 24 24" fill="currentColor"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z" fill="#06B6D4"/></svg>
-                                    <span class="text-sm font-medium text-neutral-300">Tailwind</span>
-                                </a>
-                                <a href={links.vite} target="_blank" class={techCardStyle}>
-                                    <svg class={techIconSize} viewBox="0 0 24 24" fill="currentColor"><path d="M1.764 12.275L11.026 23.4l.012.011c.218.257.545.4.887.387.323-.002.637-.145.852-.387l.011-.01L22.06 12.443l.412-11.233-5.32 10.39-2.023-11.41-3.295 18.08-3.13-18.08-2.186 11.41-5.158-10.39.404 11.065z" fill="#646CFF"/></svg>
-                                    <span class="text-sm font-medium text-neutral-300">Vite</span>
-                                </a>
-							</div>
-						</div>
+            <div class={`col-span-1 md:col-span-6 min-h-[300px] flex flex-col justify-center text-center p-10 ${darkBox} fade-in delay-500`}>
+                <div class="absolute inset-0 opacity-40 bg-[url('https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=2076&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay"></div>
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-5xl font-black uppercase leading-none mb-3 tracking-tighter">Start Before<br>You're Ready.</h2>
+                    <p class="text-sm max-w-md mx-auto opacity-90 leading-relaxed text-balance">
+                        Ideas are cheap. Execution is everything. 
+                        <br><span class="text-neutral-400">Have an idea? Build it. Now.</span>
+                    </p>
+                </div>
+            </div>
 
-						<div class="flex flex-col gap-4">
-							<p class="text-xs text-neutral-500 font-bold uppercase tracking-widest border-b border-white/5 pb-2">Data & Tools</p>
-							<div class="flex flex-col gap-3">
-                                <a href={links.sql} target="_blank" class={techCardStyle}>
-                                    <svg class={techIconSize} viewBox="0 0 24 24" fill="currentColor"><path d="M16.96 6.014c.007.032.013.064.018.096l-.018-.096zm-4.73 7.828h1.22v.945c-1.396.177-2.316-.273-2.316-1.554V7.477h-1.22v5.795c0 2.227 1.763 2.768 4.606 2.373v-.966c-1.744.156-2.29-.021-2.29-1.332v-1.333zM6.92 6.023h3.582l-1.22 3.193v5.405H8.06V9.216L6.84 6.023H5.617L4.4 9.216v5.405H3.18V9.216l-1.22-3.193h3.582l.689 2.05.69-2.05zM20.82 12.03c0 1.25-.49 1.713-1.636 1.713h-1.55v-3.41h1.55c1.147 0 1.637.463 1.637 1.698zm-3.186 2.658h1.264c2.257 0 3.14-1.026 3.14-2.658 0-1.662-.884-2.637-3.14-2.637h-2.522v6.628h1.258v-1.333z" fill="#4169E1"/></svg>
-                                    <span class="text-sm font-medium text-neutral-300">SQL</span>
-                                </a>
-                                <a href={links.excel} target="_blank" class={techCardStyle}>
-                                    <svg class={techIconSize} viewBox="0 0 24 24" fill="currentColor"><path d="M23,1.5l-15,2.6v15.6l15,2.7V1.5z M11.5,13.8L9.9,11l1.7-2.8H9.3L8.5,9.8L7.8,8.2H5.3l1.7,2.8l-1.6,2.8H7.7 l0.8-1.5l0.8,1.5H11.5z M2.5,4.6l-2.1,0.4C0.2,5,0,5.2,0,5.5v12.9c0,0.3,0.2,0.5,0.4,0.5l2.1,0.4C3.1,19.4,3.5,18.9,3.5,18.3 V5.7C3.5,5.1,3.1,4.6,2.5,4.6z" fill="#217346"/></svg>
-                                    <span class="text-sm font-medium text-neutral-300">Excel</span>
-                                </a>
-							</div>
-						</div>
+            <div class={`col-span-1 md:col-span-4 min-h-[250px] ${darkBox} fade-in delay-600`}>
+                <img src="https://images.unsplash.com/photo-1544191696-102dbdaeeaa0?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" alt="MTB" />
+                <div class="relative z-10 p-6 h-full flex flex-col justify-end">
+                    <span class="text-orange-500 font-mono text-[10px] uppercase tracking-widest mb-1">Summer</span>
+                    <h3 class="text-2xl font-bold italic">MTB Rider.</h3>
+                </div>
+            </div>
 
-					</div>
-				</div>
+            <div class={`col-span-1 md:col-span-4 min-h-[250px] ${darkBox} fade-in delay-700`}>
+                <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Ski" />
+                <div class="relative z-10 p-6 h-full flex flex-col justify-end">
+                    <span class="text-blue-400 font-mono text-[10px] uppercase tracking-widest mb-1">Winter</span>
+                    <h3 class="text-2xl font-bold italic">Ski Addict.</h3>
+                </div>
+            </div>
 
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-					
-					<div class="animate-on-scroll delay-200 md:col-span-2 bg-neutral-900 rounded-[2rem] relative overflow-hidden group min-h-[200px]">
-						<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Landscape" />
-						<div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-						<div class="relative z-10 p-8 h-full flex flex-col justify-end">
-							<p class="text-xl md:text-2xl font-serif italic text-white/95 leading-relaxed drop-shadow-md">
-								"The world is a book and those who do not travel read only one page."
-							</p>
-							<p class="text-xs text-white/80 mt-4 uppercase tracking-widest font-bold flex items-center gap-2">
-								— St. Augustine <span class="text-lg">✈️</span>
-							</p>
-						</div>
-					</div>
+            <div class={`col-span-1 md:col-span-4 min-h-[250px] ${darkBox} fade-in delay-800`}>
+                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" alt="Travel" />
+                <div class="relative z-10 p-6 h-full flex flex-col justify-end">
+                    <p class="serif text-base leading-tight mb-2 text-balance">
+                        "The world is a book and those who do not travel read only one page."
+                    </p>
+                    <p class="text-[10px] uppercase tracking-widest opacity-70">— St. Augustine</p>
+                </div>
+            </div>
 
-					<div class="animate-on-scroll delay-250 md:col-span-1 bg-neutral-900/40 border border-white/10 rounded-[2rem] p-6 flex flex-col justify-center items-center text-center hover:border-white/20 transition-colors group">
-						<div class="p-3 bg-neutral-800 rounded-full mb-3 group-hover:scale-110 transition-transform">
-							<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-						</div>
-						<p class="text-xs text-neutral-500 uppercase font-bold tracking-widest mb-1">Get in touch</p>
-						<p class="text-sm font-mono text-neutral-300 break-all bg-white/5 px-3 py-2 rounded-lg border border-white/5 select-all">
-							federico@federicospagnoli.com
-						</p>
-					</div>
+            <div class={`col-span-1 md:col-span-12 p-8 flex flex-col md:flex-row items-center justify-between bg-[#EBE9E4] rounded-2xl fade-in delay-900 border border-black/5`}>
+                <div class="flex items-center gap-4 mb-4 md:mb-0">
+                    <div class="w-10 h-10 bg-black rounded-full flex items-center justify-center text-white text-lg">✈️</div>
+                    <div>
+                        <h4 class="font-bold uppercase tracking-widest text-xs">Philosophy</h4>
+                        <p class="serif text-lg leading-none">"Happiness lives in the small things."</p>
+                    </div>
+                </div>
+                <div class="text-xs text-neutral-500 font-mono text-center md:text-right">
+                    <p>Designed with ❤️</p>
+                    <p>Ready for 2026</p>
+                </div>
+            </div>
 
-				</div>
+        </div>
 
-			</div>
-			
-			<footer class="mt-16 text-center text-neutral-600 text-xs animate-on-scroll pb-8">
-				<p>© 2025 Federico Spagnoli. Built with Astro & Tailwind.</p>
-			</footer>
+        <div class="h-10"></div>
 
-		</main>
+    </main>
+</Layout>
 
-		<style>
-			/* Solo animazioni custom */
-			.animate-on-scroll {
-				opacity: 0;
-				transform: translateY(30px);
-				transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-			}
-			.animate-on-scroll.visible {
-				opacity: 1;
-				transform: translateY(0);
-			}
+<style>
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-600 { animation-delay: 0.6s; }
+    .delay-700 { animation-delay: 0.7s; }
+    .delay-800 { animation-delay: 0.8s; }
+    .delay-900 { animation-delay: 0.9s; }
 
-			.delay-150 { transition-delay: 0.15s; }
-			.delay-200 { transition-delay: 0.2s; }
-			.delay-250 { transition-delay: 0.25s; }
+    @keyframes fadeUp {
+        to { opacity: 1; transform: translateY(0); }
+    }
 
-			@keyframes blob {
-				0% { transform: translate(0px, 0px) scale(1); }
-				33% { transform: translate(30px, -50px) scale(1.1); }
-				66% { transform: translate(-20px, 20px) scale(0.9); }
-				100% { transform: translate(0px, 0px) scale(1); }
-			}
-			.animate-blob {
-				animation: blob 7s infinite;
-			}
-			.animation-delay-2000 { animation-delay: 2s; }
-
-			@keyframes gradient-x {
-				0%, 100% { background-position: 0% 50%; }
-				50% { background-position: 100% 50%; }
-			}
-			.animate-gradient-x {
-				background-size: 200% 200%;
-				animation: gradient-x 15s ease infinite;
-			}
-		</style>
-	</body>
-</html>
+    @keyframes marquee {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+        animation: marquee 40s linear infinite;
+    }
+</style>
