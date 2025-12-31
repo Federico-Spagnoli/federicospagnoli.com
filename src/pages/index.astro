@@ -1,24 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// LINKS
+// --- CONFIGURAZIONE LINKS ---
 const links = {
   email: "mailto:federico@federicospagnoli.com",
   github: "https://github.com/Federico-Spagnoli",
   linkedin: "https://www.linkedin.com/in/federico-spagnoli-82a3663a2/",
-  insta: "https://www.instagram.com/fedeespagnoli/"
+  insta: "https://www.instagram.com/fedeespagnoli/?hl=en",
+  tiktok: "https://www.tiktok.com/@spagnolifederico07",
+  x: "https://x.com/FedeSpa"
 };
 
-// SKILLS 
-const words = ["Visionary", "Economics", "Resilience", "Strategy", "Innovation", "Problem Solving", "Creativity"];
+// --- SKILLS: Parole pesate per un profilo "Hybrid" ---
+const words = ["Visionary", "Data Strategy", "Resilience", "Economics", "Code Engineering", "Problem Solving", "Creativity"];
 
-// STILI
+// --- STILI CSS TAILWIND ---
 const box = "bg-white border border-black/10 rounded-2xl overflow-hidden hover:shadow-xl hover:scale-[1.005] transition-all duration-500 ease-out relative group";
 const darkBox = "bg-black text-white border border-white/10 rounded-2xl overflow-hidden hover:shadow-xl hover:scale-[1.005] transition-all duration-500 ease-out relative group";
-const iconBtn = "w-10 h-10 flex items-center justify-center rounded-full border border-black/10 hover:bg-black hover:text-white transition-all duration-300";
+const iconBtn = "w-10 h-10 flex flex-shrink-0 items-center justify-center rounded-full border border-black/10 hover:bg-black hover:text-white transition-all duration-300";
 ---
 
-<Layout title="Federico Spagnoli">
+<Layout title="Federico Spagnoli | Strategic Visionary">
     
     <main class="relative min-h-screen p-4 md:p-8 max-w-[1400px] mx-auto">
         
@@ -28,45 +30,65 @@ const iconBtn = "w-10 h-10 flex items-center justify-center rounded-full border 
             </div>
             <div class="text-right leading-tight">
                 <p class="text-[10px] font-bold uppercase tracking-widest">© Federico Spagnoli</p>
-                <p class="text-[10px] font-mono uppercase tracking-widest opacity-50">📍Brescia • {new Date().getFullYear()}</p>
+                <p class="text-[10px] font-mono uppercase tracking-widest opacity-50">Brescia • {new Date().getFullYear()}</p>
             </div>
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
 
-            <div class={`col-span-1 md:col-span-8 p-8 md:p-10 flex flex-col justify-center min-h-[350px] fade-in delay-100 ${box}`}>
+            <div class={`col-span-1 md:col-span-8 p-8 md:p-12 flex flex-col justify-center min-h-[380px] fade-in delay-100 ${box}`}>
                 <div>
-                    <h1 class="text-5xl md:text-7xl leading-[0.95] text-black mb-5 tracking-tight">
+                    <h1 class="text-5xl md:text-7xl leading-[0.95] text-black mb-6 tracking-tight text-balance">
                         Visionary Tech. <br>
                         <span class="italic font-light text-neutral-500">Authentic Soul.</span>
                     </h1>
                     <p class="text-base md:text-lg max-w-lg font-medium leading-relaxed text-neutral-700 text-balance">
                         I am <span class="underline decoration-1 underline-offset-4">Federico</span>. 
-                        Merging rigorous Engineering logic with creative vision. 
-                        I study technology to find creative ways to impact the real world.
+                        Merging rigorous <strong>Engineering logic</strong> with creative strategy. 
+                        I don't just study technology; I analyze how to use it to impact the real world.
                     </p>
                 </div>
 
-                <div class="flex items-center gap-3 mt-8 pt-6 border-t border-black/5">
-                    <a href={links.github} target="_blank" class={iconBtn} aria-label="GitHub">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a>
-                    <a href={links.linkedin} target="_blank" class={iconBtn} aria-label="LinkedIn">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
-                    <a href={links.email} class={iconBtn} aria-label="Email">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                    </a>
-                    <div class="h-px w-8 bg-black/10 mx-2"></div>
-                    <p class="text-xs font-mono text-neutral-400">CONNECT</p>
+                <div class="mt-8 pt-6 border-t border-black/5 w-full flex flex-col gap-4">
+                    
+                    <div class="flex items-center gap-3">
+                        <span class="text-[10px] font-bold uppercase tracking-widest w-16 text-neutral-400 hidden md:block">Connect</span>
+                        <div class="flex gap-2">
+                            <a href={links.github} target="_blank" class={iconBtn} aria-label="GitHub" title="My Code">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                            <a href={links.linkedin} target="_blank" class={iconBtn} aria-label="LinkedIn" title="My Career">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </a>
+                            <a href={links.email} class={iconBtn} aria-label="Email" title="Write Me">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <span class="text-[10px] font-bold uppercase tracking-widest w-16 text-neutral-400 hidden md:block">Follow</span>
+                        <div class="flex gap-2">
+                            <a href={links.insta} target="_blank" class={iconBtn} aria-label="Instagram">
+                                <svg class="w-4 h-4" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/></svg>
+                            </a>
+                            <a href={links.tiktok} target="_blank" class={iconBtn} aria-label="TikTok">
+                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.65-1.62-1.1-.04 1.86.04 3.72-.08 5.58-.18 2.87-1.6 5.56-4.01 6.95-2.42 1.4-5.36 1.48-7.86.13-2.49-1.35-3.95-4-3.93-6.87-.04-4.52 3.06-8.55 7.57-9.33V8.6c-2.38.33-4.14 2.55-3.95 4.97.16 2.06 1.84 3.73 3.91 3.9 2.06.17 3.96-1.19 4.38-3.15.22-1.04.18-2.12.18-3.18V.02z"/></svg>
+                            </a>
+                            <a href={links.x} target="_blank" class={iconBtn} aria-label="X">
+                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <div class={`col-span-1 md:col-span-4 min-h-[350px] ${box} !p-0 fade-in delay-200`}>
+            <div class={`col-span-1 md:col-span-4 min-h-[380px] ${box} !p-0 fade-in delay-200`}>
                 <img src="https://github.com/Federico-Spagnoli.png" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Me" />
                 <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-3 py-1.5 rounded-full text-xs font-bold border border-black/10 shadow-sm flex items-center gap-2">
                     <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                    Student & Dreamer
+                    Student & Creator
                 </div>
             </div>
 
@@ -80,9 +102,11 @@ const iconBtn = "w-10 h-10 flex items-center justify-center rounded-full border 
 
             <div class={`col-span-1 md:col-span-6 min-h-[300px] p-10 flex flex-col justify-center items-center text-center bg-[#F4F4F0] ${box} fade-in delay-400`}>
                 <div class="max-w-md">
-                    <h3 class="serif text-3xl mb-4 italic">The Quiet Strength.</h3>
+                    <h3 class="serif text-3xl mb-4 italic">The Hybrid Mind.</h3>
                     <p class="text-neutral-700 leading-relaxed text-sm md:text-base text-balance">
-                        In a world that rewards noise, I choose depth. Being introverted isn't a limitation; it's a filter. It allows me to observe what others miss and solve problems with a perspective no one else has.
+                        I speak two languages: <strong>Algorithms</strong> and <strong>Empathy</strong>.
+                        <br>
+                        Being introverted is my strategic asset. It allows me to observe the details others miss and build solutions that truly connect with people.
                     </p>
                 </div>
             </div>
@@ -90,48 +114,56 @@ const iconBtn = "w-10 h-10 flex items-center justify-center rounded-full border 
             <div class={`col-span-1 md:col-span-6 min-h-[300px] flex flex-col justify-center text-center p-10 ${darkBox} fade-in delay-500`}>
                 <div class="absolute inset-0 opacity-40 bg-[url('https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=2076&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay"></div>
                 <div class="relative z-10">
-                    <h2 class="text-3xl md:text-5xl font-black uppercase leading-none mb-3 tracking-tighter">Start Before<br>You're Ready.</h2>
+                    <h2 class="text-3xl md:text-5xl font-black uppercase leading-none mb-3 tracking-tighter">Vision needs<br>Execution.</h2>
                     <p class="text-sm max-w-md mx-auto opacity-90 leading-relaxed text-balance">
-                        Ideas are cheap. Execution is everything. 
-                        <br><span class="text-neutral-400">Have an idea? Build it. Now.</span>
+                        Ideas without action are just hallucinations. 
+                        <br><span class="text-neutral-400 font-medium">I don't just dream. I build. Now.</span>
                     </p>
                 </div>
             </div>
 
-            <div class={`col-span-1 md:col-span-4 min-h-[250px] ${darkBox} fade-in delay-600`}>
+            <div class={`col-span-1 md:col-span-3 min-h-[250px] ${darkBox} fade-in delay-600`}>
                 <img src="https://images.unsplash.com/photo-1544191696-102dbdaeeaa0?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" alt="MTB" />
                 <div class="relative z-10 p-6 h-full flex flex-col justify-end">
-                    <span class="text-orange-500 font-mono text-[10px] uppercase tracking-widest mb-1">Summer</span>
-                    <h3 class="text-2xl font-bold italic">MTB Rider.</h3>
+                    <span class="text-orange-500 font-mono text-[10px] uppercase tracking-widest mb-1">Focus</span>
+                    <h3 class="text-xl font-bold italic">MTB.</h3>
                 </div>
             </div>
 
-            <div class={`col-span-1 md:col-span-4 min-h-[250px] ${darkBox} fade-in delay-700`}>
+            <div class={`col-span-1 md:col-span-3 min-h-[250px] ${darkBox} fade-in delay-700`}>
                 <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Ski" />
                 <div class="relative z-10 p-6 h-full flex flex-col justify-end">
-                    <span class="text-blue-400 font-mono text-[10px] uppercase tracking-widest mb-1">Winter</span>
-                    <h3 class="text-2xl font-bold italic">Ski Addict.</h3>
+                    <span class="text-blue-400 font-mono text-[10px] uppercase tracking-widest mb-1">Agility</span>
+                    <h3 class="text-xl font-bold italic">Ski.</h3>
                 </div>
             </div>
 
-            <div class={`col-span-1 md:col-span-4 min-h-[250px] ${darkBox} fade-in delay-800`}>
+            <div class={`col-span-1 md:col-span-3 min-h-[250px] ${darkBox} fade-in delay-800`}>
+                <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" alt="Swim" />
+                <div class="relative z-10 p-6 h-full flex flex-col justify-end">
+                    <span class="text-cyan-400 font-mono text-[10px] uppercase tracking-widest mb-1">Discipline</span>
+                    <h3 class="text-xl font-bold italic">Swim.</h3>
+                </div>
+            </div>
+
+            <div class={`col-span-1 md:col-span-3 min-h-[250px] ${darkBox} fade-in delay-900`}>
                 <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" alt="Travel" />
                 <div class="relative z-10 p-6 h-full flex flex-col justify-end">
-                    <p class="serif text-base leading-tight mb-2 text-balance">
-                        "The world is a book and those who do not travel read only one page."
-                    </p>
-                    <p class="text-[10px] uppercase tracking-widest opacity-70">— St. Augustine</p>
+                    <span class="text-green-400 font-mono text-[10px] uppercase tracking-widest mb-1">Perspective</span>
+                    <h3 class="text-xl font-bold italic">Travel.</h3>
                 </div>
             </div>
 
-            <div class={`col-span-1 md:col-span-12 p-8 flex flex-col md:flex-row items-center justify-between bg-[#EBE9E4] rounded-2xl fade-in delay-900 border border-black/5`}>
-                <div class="flex items-center gap-4 mb-4 md:mb-0">
-                    <div class="w-10 h-10 bg-black rounded-full flex items-center justify-center text-white text-lg">✈️</div>
+            <div class={`col-span-1 md:col-span-12 p-8 h-auto bg-[#EBE9E4] rounded-2xl fade-in delay-1000 border border-black/5 flex flex-col md:flex-row items-center md:justify-between gap-6 text-center md:text-left`}>
+                
+                <div class="flex flex-col md:flex-row items-center gap-4">
+                    <div class="text-4xl">✈️</div>
                     <div>
-                        <h4 class="font-bold uppercase tracking-widest text-xs">Philosophy</h4>
-                        <p class="serif text-lg leading-none">"Happiness lives in the small things."</p>
+                        <h4 class="font-bold uppercase tracking-widest text-xs mb-1 text-neutral-500">Philosophy</h4>
+                        <p class="serif text-xl leading-none">"Happiness lives in the small things."</p>
                     </div>
                 </div>
+
                 <div class="text-xs text-neutral-500 font-mono text-center md:text-right">
                     <p>Designed with ❤️</p>
                     <p>Ready for 2026</p>
@@ -161,6 +193,7 @@ const iconBtn = "w-10 h-10 flex items-center justify-center rounded-full border 
     .delay-700 { animation-delay: 0.7s; }
     .delay-800 { animation-delay: 0.8s; }
     .delay-900 { animation-delay: 0.9s; }
+    .delay-1000 { animation-delay: 1.0s; }
 
     @keyframes fadeUp {
         to { opacity: 1; transform: translateY(0); }
